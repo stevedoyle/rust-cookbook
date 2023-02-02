@@ -44,8 +44,19 @@ mod tests {
     }
 
     #[test]
+    // Parse a string containing a number in scientific notation
+    fn scientific_to_string() {
+        let s = String::from("1.234e5");
+        let num = fast_float::parse(s).unwrap();
+        assert_eq!(123400.0, num);
+
+        let num = fast_float::parse("1.23e-3").unwrap();
+        assert_eq!(0.00123, num);
+    }
+
+    #[test]
     fn numeric_to_string() {
-            // Integer to string
+        // Integer to string
         let x = 1234;
         let s: String = x.to_string();
         assert_eq!("1234", s);
