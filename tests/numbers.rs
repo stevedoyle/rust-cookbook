@@ -71,4 +71,31 @@ mod tests {
         let s: String = format!("{:X}", x);
         assert_eq!("1234", s);
     }
+
+    #[test]
+    // Convert between numeric types
+    fn int_to_float() {
+        let i = 10;
+        let f: f64 = i.into();
+        assert_eq!(10.0, f);
+    }
+
+    #[test]
+    // Convert between numeric types
+    fn float_to_int() {
+        let f = 10.1;
+        let i = f as i32;
+        assert_eq!(10, i);
+    }
+
+    #[test]
+    // Get the min and max values for a numeric type
+    fn numeric_min_max() {
+        let max = std::u32::MAX;
+        assert_eq!(4_294_967_295u32, max);
+
+        let min = std::u32::MIN;
+        assert_eq!(0, min);
+    }
+
 }
